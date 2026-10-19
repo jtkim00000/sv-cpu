@@ -1,9 +1,9 @@
 SIM ?= questa
 TEST ?= pc
-#expand
+#EXPAND
 PC_SRCS := rtl/interfaces/pc_if.sv rtl/modules/pc.sv tb/pc_tb.sv
 ALU_SRCS := rtl/packages/alu_pkg.sv rtl/interfaces/alu_if.sv rtl/modules/alu.sv tb/alu_tb.sv
-#expand
+#EXPAND
 ifeq ($(TEST),pc)
 SRCS := $(PC_SRCS)
 TOP := pc_tb
@@ -19,7 +19,7 @@ VSIM ?= vsim
 IVERILOG ?= iverilog
 VVP ?= vvp
 LIB := sim_$(TEST)_work
-#expand
+#EXPAND
 .PHONY: pc alu compile run
 pc:
 	$(MAKE) run TEST=pc
