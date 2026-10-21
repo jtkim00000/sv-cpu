@@ -1,21 +1,24 @@
-interface pc_if (input logic clk);
+interface pc_if(input bit clk);
 
+    logic [31:0] rdata, wdata;
     logic reset;
-    logic [31:0] wdata;
-    logic [31:0] rdata;
 
-    modport dut (
+    clocking pc_cb @(posedge clk);
+        input rdata;
+        output wdata, reset;
+    endclocking : pc_cb
+
+    modport TEST (clocking pc_cb);
+
+    modport DUT (
         input clk, reset, wdata,
         output rdata
     );
 
-    modport driver (
-        input clk, rdata,
-        output wdata, reset
-    );
+    clocking pc_cbm @(posedge clk);
+        input rdata, wdata;
+    endclocking : pc_cmb
 
-    modport monitor (
-        input clk, reset, wdata, rdata
-    );
+    modport MONITOR (clocking pc_cbm);
 
 endinterface : pc_if

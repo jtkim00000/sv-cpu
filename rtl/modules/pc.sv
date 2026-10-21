@@ -1,4 +1,4 @@
-module pc (pc_if.dut bus);
+module pc (pc_if.DUT bus);
 
     always_ff @(posedge bus.clk) begin
         if(bus.reset)
