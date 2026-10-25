@@ -1,4 +1,4 @@
-package alu_pkg
+package alu_pkg;
 
     typedef enum logic [3:0] {
         ALU_ADD  = 4'd0,
@@ -7,7 +7,7 @@ package alu_pkg
         ALU_OR   = 4'd3,
         ALU_AND  = 4'd4,
         ALU_SLL  = 4'd5,
-        ALU_SRL  = 4'46,
+        ALU_SRL  = 4'd6,
         ALU_SRA  = 4'd7,
         ALU_SLT  = 4'd8,
         ALU_SLTU = 4'd9
@@ -15,27 +15,23 @@ package alu_pkg
 
 endpackage : alu_pkg
 
-module alu (
-    input logic [31:0] a,
-    input logic [31:0] b,
-    input logic [3:0] sel,
-    output logic [31:0] s
-    );
+module alu (alu_if.DUT aluif);
 
-    import alu_pkd::*;
+    import alu_pkg::*;
 
     always_comb begin
-        case(sel)
-            ALU_ADD:  s = a + b;
-            ALU_SUB:  s = a - b;
-            ALU_XOR:  s = a ^ b;
-            ALU_OR:   s = a | b;
-            ALU_AND:  s = a & b;
-            ALU_SLL:  s = a << b[4:0];
-            ALU_SRL:  s = a >> b[4:0];
-            ALU_SRA:  s = $signed(a) >> b[4:0];
-            ALU_SLT:  s = ($signed(a) < $signed(b)) ? 1 : 0;
-            ALU_SLTU: s = ($unsigned(a) < $unsigned(b)) ? 1 : 0;
+        case(aluif.sel)
+            ALU_ADD:  aluif.s = aluif.a + aluif.b;
+            ALU_SUB:  aluif.s = aluif.a - aluif.b;
+            ALU_XOR:  aluif.s = aluif.a ^ aluif.b;
+            ALU_OR:   aluif.s = aluif.a | aluif.b;
+            ALU_AND:  aluif.s = aluif.a & aluif.b;
+            ALU_SLL:  aluif.s = aluif.a << aluif.b[4:0];
+            ALU_SRL:  aluif.s = aluif.a >> aluif.b[4:0];
+            ALU_SRA:  aluif.s = $signed(aluif.a) >>> aluif.b[4:0];
+            ALU_SLT:  aluif.s = ($signed(aluif.a) < $signed(aluif.b)) ? 32'd1 : 32'd0;
+            ALU_SLTU: aluif.s = ($unsigned(aluif.a) < $unsigned(aluif.b)) ? 32'd1 : 32'd0;
+            default:  aluif.s = 32'd0;
         endcase
     end
 

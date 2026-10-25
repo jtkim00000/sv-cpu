@@ -16,7 +16,7 @@ interface pc_if(input bit clk);
     );
 
     clocking pc_cbm @(posedge clk);
-        input rdata, wdata;
+        input rdata, wdata, reset;
     endclocking : pc_cmb
 
     modport MONITOR (clocking pc_cbm);
