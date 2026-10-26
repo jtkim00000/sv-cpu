@@ -8,5 +8,18 @@ interface mux_if #(
     logic [SELECT_BITS-1:0] sel;
     logic [DATA_WIDTH-1:0] data_out;
 
+    modport TEST (
+        input data_out,
+        output sel, data_in
+    );
+
+    modport DUT (
+        input sel, data_in,
+        output data_out
+    );
+
+    modport MONITOR (
+        input sel, data_in, data_out
+    );
 
 endinterface : mux_if
