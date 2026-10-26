@@ -1,10 +1,10 @@
-module pc (pc_if.DUT bus);
+module pc (pc_if.DUT pcif);
 
-    always_ff @(posedge bus.clk) begin
-        if(bus.reset)
-            bus.rdata <= 32'd0;
+    always_ff @(posedge pcif.clk) begin
+        if(pcif.reset)
+            pcif.read_data <= 32'd0;
         else
-            bus.rdata <= bus.wdata;
+            pcif.read_data <= pcif.write_data;
     end
 
 endmodule : pc
