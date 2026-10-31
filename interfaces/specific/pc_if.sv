@@ -4,6 +4,7 @@ interface pc_if(input bit clk);
     logic reset;
 
     clocking pc_cb @(posedge clk);
+        default input #1step output #0;
         input read_data;
         output write_data, reset;
     endclocking : pc_cb
@@ -16,6 +17,7 @@ interface pc_if(input bit clk);
     );
 
     clocking pc_cbm @(posedge clk);
+        default input #1step;
         input read_data, write_data, reset;
     endclocking : pc_cmb
 
