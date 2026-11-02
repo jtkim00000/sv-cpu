@@ -27,4 +27,4 @@ module immediate_generator (immediate_generator_if.DUT imm_genif);
         endcase
     end
 
-endmodule : imm_genif.immediate_generator
+endmodule : immediate_generator

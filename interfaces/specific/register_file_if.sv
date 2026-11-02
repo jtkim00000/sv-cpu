@@ -1,13 +1,13 @@
 interface register_file_if(input logic clk);
 
-    logic write_enable,
+    logic write_enable;
     logic [4:0] rs1_addr, rs2_addr, write_addr;
     logic [31:0] write_data, rs1, rs2;
 
     clocking register_file_cb @(posedge clk);
         default input #1step output #0;
         input rs1, rs2;
-        output write_enable, rs1_addr. rs2_addr. write_addr, write_data;
+        output write_enable, rs1_addr, rs2_addr, write_addr, write_data;
     endclocking : register_file_cb
 
 
@@ -20,7 +20,7 @@ interface register_file_if(input logic clk);
 
     clocking register_file_cb_m @(posedge clk);
         default input #1step;
-        input write_enable, rs1_addr, rs2_addr. write_addr, write_data, rs1, rs2;
+        input write_enable, rs1_addr, rs2_addr, write_addr, write_data, rs1, rs2;
     endclocking
 
     modport MONITOR (clocking register_file_cb_m);
