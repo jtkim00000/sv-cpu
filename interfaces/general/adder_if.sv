@@ -13,7 +13,7 @@ interface adder_if;
     );
 
     modport MONITOR (
-        input a, b, c
+        input a, b, s
     );
 
 endinterface : adder_if
