@@ -19,7 +19,7 @@ interface pc_if(input bit clk);
     clocking pc_cbm @(posedge clk);
         default input #1step;
         input read_data, write_data, reset;
-    endclocking : pc_cmb
+    endclocking : pc_cbm
 
     modport MONITOR (clocking pc_cbm);
 
