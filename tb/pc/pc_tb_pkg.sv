@@ -7,7 +7,8 @@ package pc_tb_pkg;
     `include "pc_driver.svh"
     `include "pc_monitor.svh"
     `include "pc_agent.svh"
-    `include "pc_scorebaord.svh"
-
+    `include "pc_scoreboard.svh"
+    `include "pc_env.svh"
+    `include "pc_test.svh"
 
 endpackage : pc_tb_pkg
