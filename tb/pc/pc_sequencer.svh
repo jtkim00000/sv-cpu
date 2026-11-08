@@ -5,5 +5,4 @@ class pc_sequencer extends uvm_sequencer #(pc_item);
         super.new(name, parent);
     endfunction : new
 
-
 endclass : pc_sequencer
