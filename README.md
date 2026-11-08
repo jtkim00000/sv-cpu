@@ -1,3 +1,3 @@
 # sv-cpu
 
-cpu repo for systemverilog implementation of risc-v cpu
+risc-v processor on fpga, systemverilog rtl, uvm design verification, xilinx vivado, urbana fpga
