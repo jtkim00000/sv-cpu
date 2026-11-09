@@ -6,7 +6,7 @@ class pc_sequence extends uvm_sequence #(pc_item);
     endfunction : new
 
     virtual task body();
-        repeat (5) begin
+        repeat (50) begin
             req = pc_item::type_id::create("req");
             start_item(req);
             if (!req.randomize())
