@@ -19,7 +19,7 @@ class pc_scoreboard extends uvm_scoreboard;
 
     virtual function void write(pc_item tr);
         if (expected_valid) begin
-            check_count++;
+            ++check_count;
 
             if (tr.read_data !== expected_data) begin
                 mismatch_count++;
@@ -29,7 +29,7 @@ class pc_scoreboard extends uvm_scoreboard;
 
         expected_data = tr.reset ? 32'd0 : tr.write_data;
         expected_valid = 1;
-    endfunction
+    endfunction : write
 
     virtual function void report_phase(uvm_phase phase);
         super.report_phase(phase);
