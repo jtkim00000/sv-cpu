@@ -1,0 +1,49 @@
+UVM_INFO @ 0: reporter [RNTST] Running test pc_test...
+UVM_INFO C:/AMDDesignTools/2026.1/Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(18752) @ 0: reporter [UVMTOP] UVM testbench topology:
+--------------------------------------------------------------
+Name                       Type                    Size  Value
+--------------------------------------------------------------
+uvm_test_top               pc_test                 -     @343 
+  m_top_env                pc_env                  -     @356 
+    m_agent                pc_agent                -     @365 
+      m_coverage           pc_coverage             -     @559 
+        analysis_imp       uvm_analysis_imp        -     @568 
+      m_driver             pc_driver               -     @521 
+        rsp_port           uvm_analysis_port       -     @540 
+        seq_item_port      uvm_seq_item_pull_port  -     @530 
+      m_monitor            pc_monitor              -     @550 
+        mon_analysis_port  uvm_analysis_port       -     @579 
+      m_sequencer          pc_sequencer            -     @384 
+        rsp_export         uvm_analysis_export     -     @393 
+        seq_item_export    uvm_seq_item_pull_imp   -     @511 
+        arbitration_queue  array                   0     -    
+        lock_queue         array                   0     -    
+        num_last_reqs      integral                32    'd1  
+        num_last_rsps      integral                32    'd1  
+    m_scoreboard           pc_scoreboard           -     @374 
+      ap_imp               uvm_analysis_imp        -     @595 
+--------------------------------------------------------------
+
+UVM_INFO C:/AMDDesignTools/2026.1/Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(20867) @ 0: reporter [UVM/COMP/NAMECHECK] This implementation of the component name checks requires DPI to be enabled
+UVM_INFO C:/AMDDesignTools/2026.1/Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(19968) @ 211000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO ../../../../../../Github/sv-cpu/tb/pc/pc_scoreboard.svh(41) @ 211000: uvm_test_top.m_top_env.m_scoreboard [PC_SUMMARY] Checks: 10, mismatches: 0
+UVM_INFO C:/AMDDesignTools/2026.1/Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(13673) @ 211000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :    6
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[PC_SUMMARY]     1
+[RNTST]     1
+[TEST_DONE]     1
+[UVM/COMP/NAMECHECK]     1
+[UVM/RELNOTES]     1
+[UVMTOP]     1
+
+$finish called at time : 211 ns : File "C:/AMDDesignTools/2026.1/Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 18699
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'pc_tb_top_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:07 ; elapsed = 00:00:46 . Memory (MB): peak = 2129.355 ; gain = 0.000

@@ -1,8 +1,8 @@
 class pc_scoreboard extends uvm_scoreboard;
     `uvm_component_utils(pc_scoreboard)
 
-    function new(string name, uvm_component parent)
-        super.new(name, parent)
+    function new(string name, uvm_component parent);
+        super.new(name, parent);
     endfunction : new
 
     uvm_analysis_imp #(pc_item, pc_scoreboard) ap_imp;
@@ -12,7 +12,7 @@ class pc_scoreboard extends uvm_scoreboard;
     int unsigned check_count = 0;
     int unsigned mismatch_count = 0;
 
-    function void built_phase(uvm_phase phase);
+    function void build_phase(uvm_phase phase);
         super.build_phase(phase);
         ap_imp = new("ap_imp", this);
     endfunction : build_phase

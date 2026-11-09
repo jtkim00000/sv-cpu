@@ -6,11 +6,11 @@ class pc_agent extends uvm_agent;
     pc_sequencer m_sequencer;
     pc_coverage m_coverage;
 
-    function new(string name, uvm_component parent)
-        super.new(name, parent)
+    function new(string name, uvm_component parent);
+        super.new(name, parent);
     endfunction : new 
 
-    virtual function void built_phase(uvm_phase phase);
+    virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
 
         if(get_is_active()) begin
@@ -31,3 +31,5 @@ class pc_agent extends uvm_agent;
     endfunction : connect_phase
 
 endclass : pc_agent
+
+// uvm_config_db #(uvm_active_passive_enum)::set(this, "path_to_agent", "is_active", UVM_PASSIVE);

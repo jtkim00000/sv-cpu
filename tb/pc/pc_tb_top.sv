@@ -1,17 +1,24 @@
 module pc_tb_top;
-
+    timeunit 1ns; 
+    timeprecision 1ps;
+    
     import uvm_pkg::*;
     import pc_tb_pkg::*;
-    `include "uvm_macros.svh"
 
     bit clk;
-    always #10 clk = ~clk;
+    always #10ns clk = ~clk;
 
     pc_if pc_if0 (clk);
-    pc dut0 (pc_if0.TEST);
+    pc dut0 (pc_if0.DUT);
 
     initial begin
-        uvm_config_db #(virtual pc_if)::set(null, "uvm_test_top.*", "vif", pc_if0);
+        pc_if0.reset      = 1'b1;
+        pc_if0.write_data = 32'd0;
+
+        uvm_config_db#(virtual pc_if.TEST)::set(null, "uvm_test_top.m_top_env.m_agent.m_driver", "vif", pc_if0);
+
+        uvm_config_db#(virtual pc_if.MONITOR)::set(null, "uvm_test_top.m_top_env.m_agent.m_monitor", "vif", pc_if0);
+
         run_test("pc_test");
     end
 

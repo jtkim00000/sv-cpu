@@ -5,7 +5,7 @@ class pc_item extends uvm_sequence_item;
     logic [31:0] read_data;
 
     constraint write_data_c {
-        write_data[1:0] == 2'b00    // Align on a 4-byte boundary
+        write_data[1:0] == 2'b00;    // Align on a 4-byte boundary
     }
 
     `uvm_object_utils_begin(pc_item)

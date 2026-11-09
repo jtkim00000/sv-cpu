@@ -23,16 +23,16 @@ class pc_monitor extends uvm_monitor;
         pc_item tr;
 
         if(vif == null)
-            return
+            return;
 
         forever begin
             @(vif.pc_cbm);
 
             tr = pc_item::type_id::create("tr", this);
 
-            tr.write_data = vif.write_data;
-            tr.read_data = vif.read_data;
-            tr.reset = vif.reset;
+            tr.write_data = vif.pc_cbm.write_data;
+            tr.read_data = vif.pc_cbm.read_data;
+            tr.reset = vif.pc_cbm.reset;
 
             mon_analysis_port.write(tr);
         end

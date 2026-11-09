@@ -12,7 +12,7 @@ class pc_test extends uvm_test;
         m_top_env = pc_env::type_id::create("m_top_env", this);
     endfunction : build_phase
 
-    virtual function void end_of_elaboration_phase();
+    virtual function void end_of_elaboration_phase(uvm_phase phase);
         uvm_top.print_topology();
     endfunction : end_of_elaboration_phase
 
@@ -21,14 +21,8 @@ class pc_test extends uvm_test;
 
         phase.raise_objection(this);
         m_seq.start(m_top_env.m_agent.m_sequencer);
+        #21ns
         phase.drop_objection(this);
     endtask : run_phase
-
-    function void start_of_simulation_phase(uvm_phase phase);
-        super.start_of_simulation_phase(phase);
-
-        uvm_config_db #(uvm_object_wrapper)::set(this, "m_top_env.m_sequencer.run_phase", "default sequence", pc_sequence::type_id::get());
-
-    endfunction : start_of_simulation_phase
 
 endclass : pc_test

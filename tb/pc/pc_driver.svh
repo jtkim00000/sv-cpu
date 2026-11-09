@@ -21,8 +21,8 @@ class pc_driver extends uvm_driver #(pc_item);
             seq_item_port.get_next_item(tr);
 
             @(vif.pc_cb);
-            vif.reset <= tr.reset;
-            vif.write_data <= tr.write_data;
+            vif.pc_cb.reset <= tr.reset;
+            vif.pc_cb.write_data <= tr.write_data;
 
             @(vif.pc_cb);
 
