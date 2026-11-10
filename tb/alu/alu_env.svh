@@ -9,7 +9,7 @@ class alu_env extends uvm_env;
     endfunction : new
 
     virtual function void build_phase(uvm_phase phase);
-        super.new(phase);
+        super.build_phase(phase);
 
         m_agent = alu_agent::type_id::create("m_agent", this);
         m_scoreboard = alu_scoreboard::type_id::create("m_scoreboard", this);

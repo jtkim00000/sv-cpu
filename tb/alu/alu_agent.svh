@@ -11,7 +11,7 @@ class alu_agent extends uvm_agent;
     endfunction : new
 
     virtual function void build_phase(uvm_phase phase);
-        super.build_phase(build_phase);
+        super.build_phase(phase);
 
         if(get_is_active()) begin
             m_sequencer = alu_sequencer::type_id::create("m_sequencer", this);

@@ -3,6 +3,7 @@ package alu_tb_pkg;
     timeprecision 1ps;
     
     import uvm_pkg::*;
+    import alu_pkg::*;
     `include "uvm_macros.svh"
 
     `include "alu_item.svh"

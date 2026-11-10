@@ -12,7 +12,7 @@ class alu_test extends uvm_test;
         m_top_env = alu_env::type_id::create("m_top_env", this);
     endfunction : build_phase
 
-    virtual function end_of_elaboration_phase(uvm_phase phase);
+    virtual function void end_of_elaboration_phase(uvm_phase phase);
         uvm_top.print_topology();
     endfunction : end_of_elaboration_phase
 

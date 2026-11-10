@@ -1,4 +1,4 @@
-class alu_coverage extends uvm_subscriber;
+class alu_coverage extends uvm_subscriber #(alu_item);
     `uvm_component_utils(alu_coverage)
 
     covergroup cg_alu_transaction with function sample(
@@ -11,9 +11,9 @@ class alu_coverage extends uvm_subscriber;
 
         cp_op: coverpoint sel {
             bins ops[] = {
-                AKU_ADD, ALU_SUB, ALU_XOR, ALU_OR, ALU_AND,
+                ALU_ADD, ALU_SUB, ALU_XOR, ALU_OR, ALU_AND,
                 ALU_SLL, ALU_SRL, ALU_SRA, ALU_SLT, ALU_SLTU,
-                ALU_EQ, ALU_NE, ALU_LT, ALU_GE, ALU_LTU, ALU_GEU 
+                BR_EQ, BR_NE, BR_LT, BR_GE, BR_LTU, BR_GEU 
             };
         }
 

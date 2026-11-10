@@ -22,7 +22,7 @@ class pc_scoreboard extends uvm_scoreboard;
             ++check_count;
 
             if (tr.read_data !== expected_data) begin
-                mismatch_count++;
+                ++mismatch_count;
                 `uvm_error("PC_MISMATCH", $sformatf("Expected read_data=%08h, got %08h", expected_data, tr.read_data))
             end
         end

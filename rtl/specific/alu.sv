@@ -34,7 +34,7 @@ module alu (alu_if.DUT aluif);
             ALU_AND:  aluif.s = aluif.a & aluif.b;
             ALU_SLL:  aluif.s = aluif.a << aluif.b[4:0];
             ALU_SRL:  aluif.s = aluif.a >> aluif.b[4:0];
-            ALU_SRA:  aluif.s = $signed(aluif.a) >>> aluif.b[4:0];
+            ALU_SRA:  aluif.s = $signed(aluif.a) >> aluif.b[4:0];
             ALU_SLT:  aluif.s = ($signed(aluif.a) < $signed(aluif.b)) ? 32'd1 : 32'd0;
             ALU_SLTU: aluif.s = ($unsigned(aluif.a) < $unsigned(aluif.b)) ? 32'd1 : 32'd0;
             BR_EQ:    aluif.s = (aluif.a == aluif.b) ? 32'd1 : 32'd0;

@@ -1,4 +1,4 @@
-interface alu_if;
+interface alu_if(input bit clk);
 
     logic [31:0] a, b, s;
     logic [3:0] sel;
@@ -13,8 +13,8 @@ interface alu_if;
         input a, b, sel, s;
     endclocking
 
-    modport TEST    (clocking drive_cb);
-    modport MONITOR (clocking monitor_cb);
+    modport TEST    (clocking alu_cb);
+    modport MONITOR (clocking alu_cbm);
 
     modport DUT (
         input a, b, sel,

@@ -12,7 +12,9 @@ class alu_monitor extends uvm_monitor;
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
 
-        if(!uvm_config_db #(virtual alu_if.MONITOR)::get(this, "", "vif", mon_analysis_port))
+        mon_analysis_port = new("mon_analysis_port", this);
+
+        if(!uvm_config_db #(virtual alu_if.MONITOR)::get(this, "", "vif", vif))
             `uvm_error(get_type_name(), "Didn't get handle to virtual interface alu_if");
     endfunction : build_phase
 
@@ -23,16 +25,16 @@ class alu_monitor extends uvm_monitor;
             return;
 
         forever begin
-            @(vif.alu_cbm)
+            @(vif.alu_cbm);
 
             tr = alu_item::type_id::create("tr", this);
 
-            tr.a <= vif.alu_cbm.a;
-            tr.b <= vif.alu_cbm.b;
-            tr.sel <= vif.alu_cbm.sel;
-            tr.s <= vif.alu_cbm.s;
+            tr.a = vif.alu_cbm.a;
+            tr.b = vif.alu_cbm.b;
+            tr.sel = vif.alu_cbm.sel;
+            tr.s = vif.alu_cbm.s;
 
-            mon_analysis_port.write(tr)
+            mon_analysis_port.write(tr);
         end
 
     endtask : run_phase

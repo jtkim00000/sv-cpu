@@ -1,7 +1,7 @@
-class alu_driver extends uvm_driver;
+class alu_driver extends uvm_driver #(alu_item);
     `uvm_component_utils(alu_driver)
 
-    function new(string name, ucm_component parent);
+    function new(string name, uvm_component parent);
         super.new(name, parent);
     endfunction : new
 
@@ -22,7 +22,7 @@ class alu_driver extends uvm_driver;
 
             @(vif.alu_cb)
             vif.alu_cb.a <= tr.a;
-            vif.alu_cb.a <= tr.a;
+            vif.alu_cb.b <= tr.b;
             vif.alu_cb.sel <= tr.sel;
 
             @(vif.alu_cb)
