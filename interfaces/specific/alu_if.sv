@@ -6,12 +6,12 @@ interface alu_if(input bit clk);
     clocking alu_cb @(negedge clk);
         default output #0;
         output a, b, sel;
-    endclocking
+    endclocking : alu_cb
 
     clocking alu_cbm @(posedge clk);
         default input #1step;
         input a, b, sel, s;
-    endclocking
+    endclocking : alu_cbm
 
     modport TEST    (clocking alu_cb);
     modport MONITOR (clocking alu_cbm);

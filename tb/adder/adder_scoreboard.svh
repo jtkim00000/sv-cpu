@@ -42,7 +42,7 @@ class adder_scoreboard extends uvm_scoreboard;
         super.report_phase(phase);
 
         `uvm_info(
-            "ALU_SUMMARY", 
+            "ADDER_SUMMARY", 
             $sformatf("Checks: %0d, mismatches: %0d",check_count, mismatch_count),
             UVM_LOW
             )

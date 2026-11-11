@@ -5,12 +5,12 @@ interface adder_if(input bit clk);
     clocking adder_cb @(negedge clk);
         default output #0;
         output a, b;
-    endclocking
+    endclocking : adder_cb
 
     clocking adder_cbm @(posedge clk);
         default input #1step;
         input a, b, s;
-    endclocking
+    endclocking : adder_cbm
 
     modport TEST (clocking adder_cb);
 
