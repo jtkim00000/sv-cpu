@@ -1,0 +1,70 @@
+UVM_INFO C:/AMDDesignTools/2026.1/Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(18601) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO @ 0: reporter [RNTST] Running test imm_gen_test...
+UVM_INFO C:/AMDDesignTools/2026.1/Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(18752) @ 0: reporter [UVMTOP] UVM testbench topology:
+--------------------------------------------------------------
+Name                       Type                    Size  Value
+--------------------------------------------------------------
+uvm_test_top               imm_gen_test            -     @343 
+  m_top_env                imm_gen_env             -     @356 
+    m_agent                imm_gen_agent           -     @365 
+      m_coverage           imm_gen_coverage        -     @559 
+        analysis_imp       uvm_analysis_imp        -     @568 
+      m_driver             imm_gen_driver          -     @521 
+        rsp_port           uvm_analysis_port       -     @540 
+        seq_item_port      uvm_seq_item_pull_port  -     @530 
+      m_monitor            imm_gen_monitor         -     @550 
+        mon_analysis_port  uvm_analysis_port       -     @579 
+      m_sequencer          imm_gen_sequencer       -     @384 
+        rsp_export         uvm_analysis_export     -     @393 
+        seq_item_export    uvm_seq_item_pull_imp   -     @511 
+        arbitration_queue  array                   0     -    
+        lock_queue         array                   0     -    
+        num_last_reqs      integral                32    'd1  
+        num_last_rsps      integral                32    'd1  
+    m_scoreboard           imm_gen_scoreboard      -     @374 
+      ap_imp               uvm_analysis_imp        -     @595 
+--------------------------------------------------------------
+
+UVM_INFO C:/AMDDesignTools/2026.1/Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(20867) @ 0: reporter [UVM/COMP/NAMECHECK] This implementation of the component name checks requires DPI to be enabled
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'imm_gen_tb_top_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:44 . Memory (MB): peak = 3244.703 ; gain = 0.000
+run all
+UVM_INFO C:/AMDDesignTools/2026.1/Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(19968) @ 2021000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO ../../../../../../Github/sv-cpu/tb/immediate_generator/imm_gen_scoreboard.svh(79) @ 2021000: uvm_test_top.m_top_env.m_scoreboard [IMM_GEN_SUMMARY] Checks: 101, mismatches: 0
+UVM_INFO C:/AMDDesignTools/2026.1/Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(13673) @ 2021000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :    6
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[IMM_GEN_SUMMARY]     1
+[RNTST]     1
+[TEST_DONE]     1
+[UVM/COMP/NAMECHECK]     1
+[UVM/RELNOTES]     1
+[UVMTOP]     1
+
+$finish called at time : 2021 ns : File "C:/AMDDesignTools/2026.1/Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 18699
