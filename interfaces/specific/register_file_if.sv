@@ -18,7 +18,7 @@ interface register_file_if(input logic clk);
         output rs1, rs2
     );
 
-    clocking register_file_cb_m @(posedge clk);
+    clocking register_file_cbm @(posedge clk);
         default input #1step;
         input write_enable, rs1_addr, rs2_addr, write_addr, write_data, rs1, rs2;
     endclocking

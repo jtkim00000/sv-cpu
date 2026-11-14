@@ -1,18 +1,18 @@
-class pc_sequence extends uvm_sequence #(pc_item);
-    `uvm_object_utils(pc_sequence)
+class reg_file_sequence extends uvm_sequence #(reg_file_item);
+    `uvm_object_utils(reg_file_sequence)
 
-    function new(string name = "pc_sequence");
+    function new(string name = "reg_file_sequence");
         super.new(name);
     endfunction : new
 
     virtual task body();
         repeat (50) begin
-            req = pc_item::type_id::create("req");
+            req = reg_file_item::type_id::create("req");
             start_item(req);
             if (!req.randomize())
-                `uvm_fatal("PC_RAND", "Could not randomize PC item")
+                `uvm_fatal("REG_FILE_RAND", "Could not randomize reg_file item")
             finish_item(req);
         end
     endtask : body
 
-endclass : pc_sequence
+endclass : reg_file_sequence

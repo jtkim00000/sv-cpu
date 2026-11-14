@@ -1,8 +1,8 @@
-class pc_sequencer extends uvm_sequencer #(pc_item);
-    `uvm_component_utils(pc_sequencer)
+class reg_file_sequencer extends uvm_sequencer #(reg_file_item);
+    `uvm_component_utils(reg_file_sequencer)
 
     function new(string name, uvm_component parent);
         super.new(name, parent);
     endfunction : new
 
-endclass : pc_sequencer
+endclass : reg_file_sequencer

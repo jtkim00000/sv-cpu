@@ -1,8 +1,8 @@
-class pc_env extends uvm_env;
-    `uvm_component_utils(pc_env)
+class reg_file_env extends uvm_env;
+    `uvm_component_utils(reg_file_env)
 
-    pc_agent m_agent;
-    pc_scoreboard m_scoreboard;
+    reg_file_agent m_agent;
+    reg_file_scoreboard m_scoreboard;
 
     function new(string name, uvm_component parent);
         super.new(name, parent);
@@ -11,12 +11,12 @@ class pc_env extends uvm_env;
     virtual function void build_phase(uvm_phase phase);
         super.build_phase(phase);
 
-        m_agent = pc_agent::type_id::create("m_agent", this);
-        m_scoreboard = pc_scoreboard::type_id::create("m_scoreboard", this);
+        m_agent = reg_file_agent::type_id::create("m_agent", this);
+        m_scoreboard = reg_file_scoreboard::type_id::create("m_scoreboard", this);
     endfunction : build_phase
 
     virtual function void connect_phase(uvm_phase phase);
         super.connect_phase(phase);
         m_agent.m_monitor.mon_analysis_port.connect(m_scoreboard.ap_imp);
     endfunction : connect_phase
-endclass : pc_env
+endclass : reg_file_env
